@@ -8,37 +8,37 @@ public class UserValidationTest {
     UserRegistration userRegistration = new UserRegistration();
 
     @Test
-    public void whenGivenFirstNameWith1stCapitalLetter_shouldReturnTrue() {
+    public void whenGivenLastNameWith1stCapitalLetter_shouldReturnTrue(){
 
-        boolean validationStatus = userRegistration.validateFirstName("Monali");
-        Assert.assertEquals(true, validationStatus);
+        boolean validationStatus = userRegistration.validateLastName("Jumde");
+        Assert.assertEquals(true,validationStatus);
     }
 
     @Test
-    public void whenGivenFirstNameWith1stLetterNotCapital_shouldReturnFalse() {
+    public void whenGivenLastNameWith1stLetterNotCapital_shouldReturnFalse(){
 
-        boolean validationStatus = userRegistration.validateFirstName("monali");
-        Assert.assertEquals(false, validationStatus);
+        boolean validationStatus = userRegistration.validateLastName("jumde");
+        Assert.assertEquals(false,validationStatus);
     }
 
     @Test
-    public void whenGivenFirstNameContainNumericValue_shouldReturnFalse() {
+    public void whenGivenLastNameContainNumericValue_shouldReturnFalse(){
 
-        boolean validationStatus = userRegistration.validateFirstName("Monali95");
-        Assert.assertEquals(false, validationStatus);
+        boolean validationStatus = userRegistration.validateLastName("jumde95");
+        Assert.assertEquals(false,validationStatus);
     }
 
     @Test
-    public void whenGivenFirstNameContainSpecialCharacter_shouldReturnFalse() {
+    public void whenGivenLastNameContainSpecialCharacter_shouldReturnFalse(){
 
-        boolean validationStatus = userRegistration.validateFirstName("Monali@95");
-        Assert.assertEquals(false, validationStatus);
+        boolean validationStatus = userRegistration.validateLastName("Jumde@95");
+        Assert.assertEquals(false,validationStatus);
     }
 
     @Test
-    public void whenGivenFirstNameIsLessThan3Characters_shouldReturnFalse() {
+    public void whenGivenLastNameIsLessThan3Characters_shouldReturnFalse(){
 
-        boolean validationStatus = userRegistration.validateFirstName("Mo");
-        Assert.assertEquals(false, validationStatus);
+        boolean validationStatus = userRegistration.validateLastName("Ju");
+        Assert.assertEquals(false,validationStatus);
     }
 }
