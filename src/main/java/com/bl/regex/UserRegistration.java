@@ -4,11 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public boolean validateLastName(String lastName){
+    public boolean validateEmail(String email){
 
-        String UC2Regex= "^[A-Z]{1}[a-zA-Z]{2,20}";
-        Pattern pattern = Pattern.compile(UC2Regex);
-        Matcher matcher = pattern.matcher(lastName);
+        String Regex= "^[a-zA-Z0-9+_.]+@[a-zA-Z.-]+$";
+        Pattern pattern = Pattern.compile(Regex);
+        Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 }
