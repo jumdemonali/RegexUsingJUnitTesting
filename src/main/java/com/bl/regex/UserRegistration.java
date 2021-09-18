@@ -2,10 +2,10 @@ package com.bl.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.*;
+
 public class UserRegistration {
     public static boolean password(String password) {
-        String regex = "^(?=.*[A-Z]){1}[0-9a-zA-Z]{8,}$";
+        String regex = "^(?=.*[A-Z]){1}(?=.*[0-9])[0-9a-zA-Z]{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         if (matcher.matches()) {
