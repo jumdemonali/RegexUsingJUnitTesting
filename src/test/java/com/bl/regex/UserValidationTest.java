@@ -10,7 +10,7 @@ public class UserValidationTest {
     @Test
     public void whenGivenContactWithCountryCodeAnd10Digits_shouldReturnTrue() {
 
-        boolean validationStatus = userRegistration.password("MonaliJumde");
+        boolean validationStatus = userRegistration.password("monaliJumde");
         Assert.assertEquals(true, validationStatus);
     }
 
