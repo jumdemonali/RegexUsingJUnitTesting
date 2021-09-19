@@ -21,5 +21,19 @@ public class UserValidationTest {
         Assert.assertEquals(false, validationStatus);
     }
 
+    @Test
+    public void whenGivenPasswordRule4_WhenInProperFormat_ShouldReturnTrue() {
+
+        boolean validationStatus = userRegistration.password("monaliJumde@1");
+        Assert.assertEquals(true, validationStatus);
+    }
+
+    @Test
+    public void whenGivenPasswordRule4_WhenNotInProperFormat_ShouldReturnFalse() {
+
+        boolean validationStatus = userRegistration.password("monaliJumde");
+        Assert.assertEquals(false, validationStatus);
+    }
+
 
 }
