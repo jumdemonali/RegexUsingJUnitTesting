@@ -1,9 +1,4 @@
 package com.bl.regex;
-
-import org.junit.runners.Parameterized;
-import java.util.Arrays;
-import java.util.Collection;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class UserValidationTest {
@@ -11,69 +6,92 @@ public class UserValidationTest {
     UserRegistration userRegistration = new UserRegistration();
 
     @Test
-    public void WhenGivenEmail_IsInProperFormat_ShouldReturnTrue() {
-        boolean result = userRegistration.emailSamples("abc.100@abc.com.au");
-        Assert.assertEquals(true, result);
+    public void WhenGiveName_IsInProperFormat_ShouldReturnTrue() {
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkName("Monali");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
     }
 
     @Test
-    public void WhenGivenEmail_IsNotInProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc()*@gmail.com");
-        Assert.assertEquals(false, result);
+    public void WhenGiveName_IsNotInProperFormat_ShouldReturnFalse() {
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkName("MONali");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
+    }
+    @Test
+    public void WhenGiveLastName_IsInProperFormat_ShouldReturnTrue(){
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkLastName("Jumde");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
     }
 
     @Test
-    public void givenEmail2_WhenProper_ShouldReturnTrue() {
-        boolean result = userRegistration.emailSamples("abc.100@abc.com.au");
-        Assert.assertEquals(true, result);
+    public void WhenGiveLastName_IsNotInProperFormat_ShouldReturnFalse(){
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkLastName("JUmde");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
+    }
+    @Test
+    public void WhenGiveEmail_IsInProperFormat_ShouldReturnTrue(){
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkEmail("Mona@123");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
     }
 
     @Test
-    public void givenEmail3_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc()*@gmail.com");
-        Assert.assertEquals(false, result);
+    public void WhenGiveEmail_IsNotInProperFormat_ShouldReturnFalse(){
+        boolean actual=false;
+        try {
+            actual = userRegistration.checkEmail("jumdemonali.321");
+        }
+        catch (UserRegistrationException e)
+        {
+            System.out.println(e);
+        }
+
     }
     @Test
-    public void givenEmail4_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc123@gmail.a –");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenEmail5_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc123@.com");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenEmail6_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples(".abc@abc.com");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenEmail7_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc.@gmail.com –");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenEmail8_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc@abc@gmail.com");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenEmail9_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailSamples("abc..2002@gmail.com");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenMessage_WhenHappy_ShouldReturnEntrySuccessful() {
-        String result = MoodAnalyser.analyseMood("I am in happy mood");
-        Assert.assertEquals("Entry Successful", result);
+    public void WhenGivePassword_IsNotInProperFormat_ShouldReturnFalse(){
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkPassword("mona@123");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
     }
 
     @Test
-    public void givenMessage_WhenNotProper_ShouldReturnEntryFailed() {
-        String result = MoodAnalyser.analyseMood("I am in sad mood");
-        Assert.assertEquals("Entry Failed", result);
+    public void WhenGivePassward_IsInProperFormat_ShouldReturnTrue(){
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkPassword("abc");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
+    }
+    @Test
+    public void WhenGivePassward_IsNotInProperFormat_ShouldReturnFalse(){
+        boolean actual = false;
+        try {
+            actual = userRegistration.checkPassword("abc");
+        } catch (UserRegistrationException e) {
+            System.out.println(e);
+        }
     }
 
 }
-
