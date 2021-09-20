@@ -60,6 +60,17 @@ public class UserValidationTest {
         boolean result = userRegistration.emailSamples("abc..2002@gmail.com");
         Assert.assertEquals(false, result);
     }
+    @Test
+    public void givenMessage_WhenHappy_ShouldReturnEntrySuccessful() {
+        String result = MoodAnalyser.analyseMood("I am in happy mood");
+        Assert.assertEquals("Entry Successful", result);
+    }
+
+    @Test
+    public void givenMessage_WhenNotProper_ShouldReturnEntryFailed() {
+        String result = MoodAnalyser.analyseMood("I am in sad mood");
+        Assert.assertEquals("Entry Failed", result);
+    }
 
 }
 
