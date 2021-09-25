@@ -11,7 +11,8 @@ import java.util.regex.Matcher;
 
 public class UserRegistrationLambdaExpression {
     public static void main(String[] args) {
-        UserRegistrationInterface register=()->
+        UserRegistrationInterface obj ;
+        obj= ()-> {
         System.out.println("Welcome to User Registration");
         Scanner scanner = new Scanner(System.in);
 
@@ -34,8 +35,10 @@ public class UserRegistrationLambdaExpression {
         System.out.println("Enter password:");
         String password = scanner.next();
         System.out.println(Pattern.matches("^(?=.*[A-Z])(?=.*[a-z])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$)(?=.*[0-9]).{8,}$", password));
-    };
-
+        };
+        obj.userCheck();
+    }
 }
+
 
 
